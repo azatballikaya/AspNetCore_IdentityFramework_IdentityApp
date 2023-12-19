@@ -6,7 +6,7 @@
                 <th>Id</th>
                 <th>Name</th>
                 <th>Email</th>
-                <th></th>
+                <th style="width:125px;"></th>
             </tr>
         </thead>
         <tbody>
@@ -16,8 +16,11 @@
                     <td>@item.FullName</td>
                     <td>@item.Email</td>
                     <td>
-                        <a href="" class="btn btn-primary btn-sm">Edit</a>
-                        <a href="" class="btn btn-danger btn-sm">Delete</a>
+                        <a href="/Users/Edit/@item.Id" class="btn btn-primary btn-sm">Edit</a>
+                        <form action="/Users/Delete" method="post" onsubmit="return confirm("Emin misiniz?")" style="display:inline-block;">
+                        <input type="hidden" name="id" value="@item.Id">
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
                     </td>
                 </tr>
             }

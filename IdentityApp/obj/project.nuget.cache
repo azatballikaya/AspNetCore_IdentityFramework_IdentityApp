@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PHuGJ6A6XuTMSsMbSZ1U7kPp6QxQlqBfAWYxOX5xCBgbzwxYLXk3tQXuWMAavXJ4DoDy8TNX0iJ1XnSw8OtJeQ==",
+  "dgSpecHash": "Uu0ieNpJ5kq6KP9GqpGZqdzArsuY9xuaEdrXHbHIgjh/hnTLdsa2f68C7Sq7+iGTj3eX0GeuTjSJxUVPiaaSXQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Azat\\Documents\\GitHub\\AspNetCore_Works\\IdentityApp\\IdentityApp.csproj",
+  "projectFilePath": "C:\\Users\\Azat\\Documents\\GitHub\\AspNetCore_Works\\AspNetCore_IdentityFramework_IdentityApp\\IdentityApp\\IdentityApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Azat\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Azat\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\7.0.11\\microsoft.aspnetcore.cryptography.internal.7.0.11.nupkg.sha512",

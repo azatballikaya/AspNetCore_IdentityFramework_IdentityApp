@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Azat\\Documents\\GitHub\\AspNetCore_Works\\IdentityApp\\IdentityApp.csproj": {}
+    "C:\\Users\\Azat\\Documents\\GitHub\\AspNetCore_Works\\AspNetCore_IdentityFramework_IdentityApp\\IdentityApp\\IdentityApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Azat\\Documents\\GitHub\\AspNetCore_Works\\IdentityApp\\IdentityApp.csproj": {
+    "C:\\Users\\Azat\\Documents\\GitHub\\AspNetCore_Works\\AspNetCore_IdentityFramework_IdentityApp\\IdentityApp\\IdentityApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Azat\\Documents\\GitHub\\AspNetCore_Works\\IdentityApp\\IdentityApp.csproj",
+        "projectUniqueName": "C:\\Users\\Azat\\Documents\\GitHub\\AspNetCore_Works\\AspNetCore_IdentityFramework_IdentityApp\\IdentityApp\\IdentityApp.csproj",
         "projectName": "IdentityApp",
-        "projectPath": "C:\\Users\\Azat\\Documents\\GitHub\\AspNetCore_Works\\IdentityApp\\IdentityApp.csproj",
+        "projectPath": "C:\\Users\\Azat\\Documents\\GitHub\\AspNetCore_Works\\AspNetCore_IdentityFramework_IdentityApp\\IdentityApp\\IdentityApp.csproj",
         "packagesPath": "C:\\Users\\Azat\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Azat\\Documents\\GitHub\\AspNetCore_Works\\IdentityApp\\obj\\",
+        "outputPath": "C:\\Users\\Azat\\Documents\\GitHub\\AspNetCore_Works\\AspNetCore_IdentityFramework_IdentityApp\\IdentityApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Azat\\AppData\\Roaming\\NuGet\\NuGet.Config",
