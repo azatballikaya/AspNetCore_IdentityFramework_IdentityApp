@@ -2,13 +2,16 @@ using IdentityApp.Models;
 using IdentityApp.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace IdentityApp.Controllers{
     public class UsersController:Controller{
         private UserManager<AppUser> _userManager;
-        public UsersController(UserManager<AppUser> userManager)
+        private RoleManager<AppRole> _roleManager;
+        public UsersController(UserManager<AppUser> userManager,RoleManager<AppRole> roleManager)
         {
             _userManager=userManager;
+            _roleManager=roleManager;
         }
         public IActionResult Index()
         {
@@ -23,7 +26,7 @@ namespace IdentityApp.Controllers{
         public async Task<IActionResult> Create(CreateViewModel model){
            if(ModelState.IsValid){
             var user=new AppUser{
-                UserName=model.Email,
+                UserName=model.UserName,
                 Email=model.Email,
                 FullName=model.FullName
             };
@@ -46,10 +49,12 @@ namespace IdentityApp.Controllers{
             var user=await _userManager.FindByIdAsync(id);
             if(user==null)
             return NotFound();
+            ViewBag.Roles=(_roleManager.Roles.Select(i=>i.Name));
             var update=new EditViewModel {
                 UserId=user.Id,
                 FullName=user.FullName,
                 Email=user.Email,
+                SelectedRoles= await _userManager.GetRolesAsync(user)
                 
             };
             return View(update);
@@ -62,6 +67,8 @@ namespace IdentityApp.Controllers{
                 return NotFound();
                 user.Email=model.Email;
                 user.FullName=model.FullName;
+                
+                
                 var result=await _userManager.UpdateAsync(user);
                 if(result.Succeeded && model.Password!=null){
                     await _userManager.RemovePasswordAsync(user);
@@ -69,6 +76,8 @@ namespace IdentityApp.Controllers{
                 }
                 
                 if(result.Succeeded){
+                    _userManager.RemoveFromRolesAsync(user,await _userManager.GetRolesAsync(user));
+                    _userManager.AddToRolesAsync(user,model.SelectedRoles);
                     return RedirectToAction("Index");
                 }
                 foreach(var err in result.Errors){
