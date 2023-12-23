@@ -1,0 +1,43 @@
+@model AppRole
+<h2>Edit Role</h2>
+<hr>
+<form asp-action="Edit" asp-controller="Roles">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <input type="hidden" asp-for="Id">
+    <div class="mb-3">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control">
+    </div>
+  
+    <button class="btn btn-primary" type="submit">Kaydet</button>
+
+
+   
+    <table class="table table-sm table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th style="width:80px;"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if(ViewBag.Users.Count==0){
+                <tr><td colspan="4" class="text-center">User Yok</td></tr>
+            }
+            else{
+            @foreach(var user in ViewBag.Users){
+                <tr>
+                    <td>@user.Id</td>
+                    <td>@user.FullName</td>
+                    <td>@user.Email</td>
+                    <td>
+                        <a href="/Users/Edit/@user.Id" class="btn btn-primary btn-sm">Edit</a>
+                    </td>
+                </tr>
+            }
+            }
+        </tbody>
+    </table>
+</form>

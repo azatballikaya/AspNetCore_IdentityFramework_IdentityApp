@@ -1,10 +1,12 @@
 using IdentityApp.Models;
 using IdentityApp.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace IdentityApp.Controllers{
+    [Authorize(Roles ="admin")]
     public class UsersController:Controller{
         private UserManager<AppUser> _userManager;
         private RoleManager<AppRole> _roleManager;
@@ -15,33 +17,10 @@ namespace IdentityApp.Controllers{
         }
         public IActionResult Index()
         {
-           
+          
             return View(_userManager.Users);
         }
-        [HttpGet]
-        public IActionResult Create(){
-            return View();
-        }
-        [HttpPost]
-        public async Task<IActionResult> Create(CreateViewModel model){
-           if(ModelState.IsValid){
-            var user=new AppUser{
-                UserName=model.UserName,
-                Email=model.Email,
-                FullName=model.FullName
-            };
-           IdentityResult result= await _userManager.CreateAsync(user,model.Password);
-           if(result.Succeeded){
-            return RedirectToAction("Index");
-
-           }
-           else{
-            return View(model);
-           }
-           }
-            return View(model);
-
-        }
+      
         [HttpGet]
         public async Task<IActionResult> Edit(string? id){
             if(id==null)

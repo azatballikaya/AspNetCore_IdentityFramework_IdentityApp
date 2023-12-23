@@ -19,8 +19,8 @@
                     <td>@item.Name</td>
                     <td asp-role-users="@item.Id"></td>
                     <td><form action="">
-                        <a class="btn btn-primary btn-sm">Edit</a>
-                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        <a asp-action="Edit" asp-controller="Roles" asp-route-id="@item.Id" class="btn btn-primary btn-sm">Edit</a>
+                        <button  type="submit" class="btn btn-danger btn-sm">Delete</button>
                     </form></td>
                 </tr>
             }
