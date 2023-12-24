@@ -22,8 +22,16 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDb25maXJtRW1haWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Azat/Documents/GitHub/AspNetCore_Works/AspNetCore_IdentityFramework_IdentityApp/IdentityApp/Views/Account/ConfirmPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDb25maXJtUGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Azat/Documents/GitHub/AspNetCore_Works/AspNetCore_IdentityFramework_IdentityApp/IdentityApp/Views/Account/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Azat/Documents/GitHub/AspNetCore_Works/AspNetCore_IdentityFramework_IdentityApp/IdentityApp/Views/Account/ForgotPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Azat/Documents/GitHub/AspNetCore_Works/AspNetCore_IdentityFramework_IdentityApp/IdentityApp/Views/Account/Login.cshtml]

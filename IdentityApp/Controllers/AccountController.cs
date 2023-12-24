@@ -103,7 +103,66 @@ namespace IdentityApp.Controllers{
                 return View();
             
         }
+        [HttpGet]
+        public async Task<IActionResult> ForgotPassword(){
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> ForgotPassword(string? Email){
+            if(string.IsNullOrEmpty(Email)){
+                return View();
+            }
+            var user=await _userManager.FindByEmailAsync(Email);
+            if(user==null)
+            return View();
+            var code=await _userManager.GeneratePasswordResetTokenAsync(user);
+            var url=Url.Action("ConfirmPassword","Account",new{Id=user.Id,token=code});
+            TempData["message"]="<a>"+url+"</a>";
+            return RedirectToAction("Index","Home");
+        }
+        [HttpGet]
+        public async Task<IActionResult>  ConfirmPassword(string Id,string token){
+            if(Id==null || token==null){
+                TempData["message"]="Geçersiz url";
+                return RedirectToAction("Index","Home");
+                }
+                var user=await _userManager.FindByIdAsync(Id);
+                if(user== null){
+
+                TempData["message"]="Kullanıcı bulunamadı.";
+                return RedirectToAction("Index","Home");
+                }
+                ResetPasswordModel model=new ResetPasswordModel{
+                    Id=Id,
+                    token=token
+                };
+                return View(model);
+                
+                
+            }
+            [HttpPost]
+            public async Task<IActionResult> ConfirmPassword(ResetPasswordModel model){
+                if(model.Id==null ||model.Password==null || model.token==null)
+                return RedirectToAction("ForgotPassword","Account");
+                var user=await _userManager.FindByIdAsync(model.Id);
+                if(model.Password==model.PasswordCheck){
+                    IdentityResult result=await _userManager.ResetPasswordAsync(user,model.token,model.Password);
+                    if(result.Succeeded){
+                        TempData["message"]="Parolanız Başarıyla Sıfırlandı...";
+                        return RedirectToAction("Login");
+                    }
+                    foreach(var err in result.Errors){
+                        ModelState.AddModelError("",err.Description);
+                    }
+
+                
+                }
+                return RedirectToAction("ForgotPassword","Account");
+
+            }
+
+        }
+
         
     }
     
-}
